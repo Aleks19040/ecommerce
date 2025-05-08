@@ -6,7 +6,7 @@ Use Dotenv\Dotenv;// Import Dotenv classes into the global namespace
 // Load Composer's autoloader
 include '../vendor/autoload.php';
 require_once '../Database/db.php';
-$conn = new mysqli('localhost', 'root', 'alex', 'scholarease'); // Initialize the database connection
+$conn = new mysqli('localhost', 'root', 'alex', 'eshop'); // Initialize the database connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
@@ -77,13 +77,13 @@ if (isset($_POST['reg_new'])) {
                 $mail->Port = 587;
 
                 // Recipients
-                $mail->setFrom($_ENV['GMAIL_USERNAME'], 'scholarease');
+                $mail->setFrom($_ENV['GMAIL_USERNAME'], 'eshop');
                 $mail->addAddress($new_user, 'Coder Info');
-                $mail->addReplyTo($_ENV['GMAIL_USERNAME'], 'scholarease');
+                $mail->addReplyTo($_ENV['GMAIL_USERNAME'], 'eshop');
 
                 // Content
                 $mail->isHTML(true);
-                $mail->Subject = 'Register to Scholarease';
+                $mail->Subject = 'Register to eshop';
                 $mail->Body = '
 */
                 <!DOCTYPE html>
@@ -91,7 +91,7 @@ if (isset($_POST['reg_new'])) {
                 <head>
                   <meta charset="UTF-8">
                   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                  <title>Scholarease</title>
+                  <title>eshop</title>
                   <style>
                       body {
                           margin: 0;
@@ -161,10 +161,10 @@ if (isset($_POST['reg_new'])) {
               <body>
                   <div class="container">
                       <div class="title">
-                          <h1>scholarease</h1>
+                          <h1>eshop</h1>
                       </div>
                       <div class="content">
-                          <p>Thank you for your interest in  Scholarease. <br> Your education success success begins here!. <br> Kindly use the following link to register!</p>
+                          <p>Thank you for your interest in  eshop. <br> Your education success success begins here!. <br> Kindly use the following link to register!</p>
                       </div>
                       <div class="register-link">
                         <a href="https://1553-102-0-0-242.ngrok-free.app/projects/Bursary_Fund/auth/google_callback.php?token=<?php echo urlencode($token); ?>">Register Now</a>
@@ -172,7 +172,7 @@ if (isset($_POST['reg_new'])) {
                       </div>
                       <footer>
                           <p>Best Regards,</p>
-                          <p><strong>Scholarease</strong></p>
+                          <p><strong>eshop</strong></p>
                           <p><a href="busary fund"></a></p>
                           <p>bursary fund</p>
                           <p>All rights reserved.</p>
@@ -181,7 +181,7 @@ if (isset($_POST['reg_new'])) {
               </body>
               </html>';
 
-                $mail->AltBody = 'Hello welcome to scholarease.';
+                $mail->AltBody = 'Hello welcome to eshop.';
 
                 $mail->send();
                 echo '
